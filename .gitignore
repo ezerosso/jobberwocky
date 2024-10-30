@@ -1,0 +1,38 @@
+# Node dependencies
+node_modules/
+
+# Python
+__pycache__/
+env/
+instance/
+*.py[cod]
+*.pyo
+
+# Flask & Django
+*.sqlite3
+*.db
+instance/
+config.py
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+
+# Build files
+build/
+dist/
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# Env
+.env
+.env.example
+
+# Cache
+*.tmp
+*.cache
+*.pytest_cache/
