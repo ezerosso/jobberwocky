@@ -1,0 +1,7 @@
+Flask 
+Flask-SQLAlchemy
+marshmallow
+redis
+requests
+celery
+pytest

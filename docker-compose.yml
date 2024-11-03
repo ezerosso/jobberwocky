@@ -1,0 +1,55 @@
+services:
+  redis:
+    image: redis
+
+  web:
+    build:
+      context: .
+    environment:
+      FLASK_APP: run
+      FLASK_DEBUG: 1
+      DATABASE_URL: sqlite:///jobberwocky.db  # Cambia esto si usas otra base de datos
+      GITHUB_JOBS_URL: http://externaljobs:8080/jobs
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+    volumes:
+      - .:/app
+    command: flask run -h 0.0.0.0
+    ports:
+      - 5000:5000
+
+  celery:
+    build:
+      context: .
+    environment:
+      FLASK_APP: run
+      DATABASE_URL: sqlite:///jobberwocky.db  # Cambia esto si usas otra base de datos
+      GITHUB_JOBS_URL: http://externaljobs:8080/jobs
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+    volumes:
+      - .:/app
+    command: celery -A run.celery worker --loglevel=info
+    depends_on:
+      - redis
+
+  celery-beat:
+    build:
+      context: .
+    environment:
+      FLASK_APP: run
+      DATABASE_URL: sqlite:///jobberwocky.db  # Cambia esto si usas otra base de datos
+      GITHUB_JOBS_URL: http://externaljobs:8080/jobs
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+    volumes:
+      - .:/app
+    command: celery -A run.celery beat --loglevel=info
+    depends_on:
+      - redis
+
+  externaljobs:
+    build:
+      context: ./jobberwocky-extra-source-v2
+    ports:
+      - 8081:8080

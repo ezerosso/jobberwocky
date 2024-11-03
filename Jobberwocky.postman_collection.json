@@ -1,0 +1,561 @@
+{
+	"info": {
+		"_postman_id": "f858853f-11fc-4b4c-adec-ecae3e8a1304",
+		"name": "Jobberwocky",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13805479"
+	},
+	"item": [
+		{
+			"name": "create_job",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"algaso de asssaddssksaasssss1please23ss\",\r\n    \"salary\": 6,\r\n    \"company\": \"Meta\",\r\n    \"location\": \"Ushuaia\",\r\n    \"skills\": [\"Java\",\"Python\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/jobs/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"jobs",
+						"create"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:5000/jobs \\\r\n-H \"Content-Type: application/json\" \\\r\n-d '{\r\n    \"title\": \"Desarrollador Backend\",\r\n    \"salary\": 60000,\r\n    \"company\": \"Tech Company\",\r\n    \"location\": \"Madrid\",\r\n    \"skills\": [\"Python\", \"Flask\", \"SQLAlchemy\"]\r\n}'\r\n"
+			},
+			"response": [
+				{
+					"name": "job_already_exist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"pythosasdasasdasd pleaasdsasde\",\r\n    \"salary\": 612,\r\n    \"company\": \"Inst\",\r\n    \"location\": \"Ushuaia\",\r\n    \"skills\": [\"Java\",\"Python\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/jobs/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"jobs",
+								"create"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.1 Python/3.10.15"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Nov 2024 22:34:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "103"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"code\": \"INVALID_JOB\",\n        \"message\": \"job already exist\"\n    },\n    \"success\": false\n}"
+				},
+				{
+					"name": "ok",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"desarrollador Python\",\r\n    \"salary\": 612,\r\n    \"company\": \"Inst\",\r\n    \"location\": \"Ushuaia\",\r\n    \"skills\": [\"Java\",\"Python\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/jobs/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"jobs",
+								"create"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.1 Python/3.10.15"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Nov 2024 22:35:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 48\n    },\n    \"success\": true\n}"
+				},
+				{
+					"name": "invalid_data",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"desarrollador Python\",\r\n    \"salary\": 612,\r\n    \"location\": \"Ushuaia\",\r\n    \"skills\": [\"Java\",\"Python\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/jobs/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"jobs",
+								"create"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.1 Python/3.10.15"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Nov 2024 22:35:51 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "166"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"code\": \"INVALID_JOB_DATA\",\n        \"message\": {\n            \"company\": [\n                \"Missing data for required field.\"\n            ]\n        }\n    },\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "seach_jobs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"skills\": [\"Python\", \"Flask\", \"SQLAlchemy\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/jobs/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"jobs",
+						"search"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ok",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"skills\": [\"Python\", \"Flask\", \"SQLAlchemy\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/jobs/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"jobs",
+								"search"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.1 Python/3.10.15"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Nov 2024 22:36:13 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2391"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"company\": \"Inst\",\n            \"location\": \"Ushuaia\",\n            \"salary\": null,\n            \"skills\": [\n                \"Java\",\n                \"Python\"\n            ],\n            \"source_type\": \"INTERNAL\",\n            \"title\": \"pythosasdas pleaasdse\"\n        },\n        {\n            \"company\": \"Inst\",\n            \"location\": \"Ushuaia\",\n            \"salary\": 612,\n            \"skills\": [\n                \"Java\",\n                \"Python\"\n            ],\n            \"source_type\": \"INTERNAL\",\n            \"title\": \"pythosasdas pleaasdse\"\n        },\n        {\n            \"company\": \"Inst\",\n            \"location\": \"Ushuaia\",\n            \"salary\": 612,\n            \"skills\": [\n                \"Java\",\n                \"Python\"\n            ],\n            \"source_type\": \"INTERNAL\",\n            \"title\": \"pythosasdasasd pleaasdse\"\n        },\n        {\n            \"company\": \"Inst\",\n            \"location\": \"Ushuaia\",\n            \"salary\": 612,\n            \"skills\": [\n                \"Java\",\n                \"Python\"\n            ],\n            \"source_type\": \"INTERNAL\",\n            \"title\": \"pythosasdasasdasd pleaasdse\"\n        },\n        {\n            \"company\": \"external company\",\n            \"location\": \"Argentina\",\n            \"salary\": 70000,\n            \"skills\": [\n                \"Python\",\n                \"Machine Learning\",\n                \"Statistics\"\n            ],\n            \"source_type\": \"EXTERNAL\",\n            \"title\": \"Data Scientist\"\n        },\n        {\n            \"company\": \"external company\",\n            \"location\": \"Spain\",\n            \"salary\": 75000,\n            \"skills\": [\n                \"Python\",\n                \"TensorFlow\",\n                \"Deep Learning\"\n            ],\n            \"source_type\": \"EXTERNAL\",\n            \"title\": \"Machine Learning Engineer\"\n        },\n        {\n            \"company\": \"external company\",\n            \"location\": \"Spain\",\n            \"salary\": 85000,\n            \"skills\": [\n                \"Python\",\n                \"Machine Learning\",\n                \"AI\"\n            ],\n            \"source_type\": \"EXTERNAL\",\n            \"title\": \"AI Research Scientist\"\n        },\n        {\n            \"company\": \"external company\",\n            \"location\": \"USA\",\n            \"salary\": 28000,\n            \"skills\": [\n                \"Python\",\n                \"OOP\"\n            ],\n            \"source_type\": \"EXTERNAL\",\n            \"title\": \"Jr Python Developer\"\n        },\n        {\n            \"company\": \"Inst\",\n            \"location\": \"Ushuaia\",\n            \"salary\": 612,\n            \"skills\": [\n                \"Java\",\n                \"Python\"\n            ],\n            \"source_type\": \"INTERNAL\",\n            \"title\": \"pythosasdasasdasd pleaasdsasde\"\n        },\n        {\n            \"company\": \"Inst\",\n            \"location\": \"Ushuaia\",\n            \"salary\": 612,\n            \"skills\": [\n                \"Java\",\n                \"Python\"\n            ],\n            \"source_type\": \"INTERNAL\",\n            \"title\": \"desarrollador Python\"\n        }\n    ],\n    \"success\": true\n}"
+				},
+				{
+					"name": "no_data_body",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"skills\": [\"Python\", \"Flask\", \"SQLAlchemy\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/jobs/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"jobs",
+								"search"
+							]
+						}
+					},
+					"status": "INTERNAL SERVER ERROR",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.1 Python/3.10.15"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Nov 2024 22:36:43 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"code\": \"INTERNAL_SERVER_ERROR\",\n        \"message\": \"An unexpected error occurred\"\n    },\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "create_subs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"juan@asasdd.com\",\r\n    \"pattern\" : \"Java\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/jobs/subscriber",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"jobs",
+						"subscriber"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "duplicate_subs",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"juan@asasdd.com\",\r\n    \"pattern\" : \"Java\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/jobs/subscriber",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"jobs",
+								"subscriber"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.1 Python/3.10.15"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Nov 2024 22:37:24 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "119"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"code\": \"DUPLICATE_SUBSCRIBER\",\n        \"message\": \"subscriber already exist\"\n    },\n    \"success\": false\n}"
+				},
+				{
+					"name": "invalid_data",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"juan@asasdd.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/jobs/subscriber",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"jobs",
+								"subscriber"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.1 Python/3.10.15"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Nov 2024 22:37:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "166"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"code\": \"INVALID_JOB_DATA\",\n        \"message\": {\n            \"pattern\": [\n                \"Missing data for required field.\"\n            ]\n        }\n    },\n    \"success\": false\n}"
+				},
+				{
+					"name": "ok",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"juan@asasdd.com\",\r\n    \"pattern\" : \"Python\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/jobs/subscriber",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"jobs",
+								"subscriber"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.1 Python/3.10.15"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Nov 2024 22:37:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "38"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": null,\n    \"success\": true\n}"
+				}
+			]
+		}
+	]
+}
