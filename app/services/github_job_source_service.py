@@ -30,7 +30,7 @@ class GithubJobsSource(ExternalJobSourceInterface):
                 salary = job_info[1]
                 
                 skills_xml = job_info[2]
-                skills = extract_skills_from_xml(skills_xml)
+                skills = self.extract_skills_from_xml(skills_xml)
                 
                 job_dict = {
                     "title": title,
@@ -45,6 +45,6 @@ class GithubJobsSource(ExternalJobSourceInterface):
 
         return transformed_jobs
 
-def extract_skills_from_xml(xml_string):
-    root = ET.fromstring(xml_string)
-    return [skill.text for skill in root.findall('skill')]
+    def extract_skills_from_xml(self, xml_string):
+        root = ET.fromstring(xml_string)
+        return [skill.text for skill in root.findall('skill')]

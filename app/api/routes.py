@@ -1,6 +1,6 @@
 from flask import Blueprint
 from app.common.dtos.job_dto import CreateJobDTO, JobSearchDTO, SubscriberDTO
-from app.common.reponse.api_response import ApiResponse
+from app.common.response.api_response import ApiResponse
 from app.common.decorators.validations import validate_request
 from app.services.job_service import JobService
 from app.services.subscriber_service import SubscriberService

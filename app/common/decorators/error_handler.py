@@ -1,6 +1,6 @@
 from flask import Blueprint
 from app.common.exceptions.base_exception import BaseException
-from app.common.reponse.api_response import ApiResponse
+from app.common.response.api_response import ApiResponse
 import traceback
 from app.common.logger import logger
 

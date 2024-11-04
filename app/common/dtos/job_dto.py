@@ -12,7 +12,6 @@ class CreateJobDTO(Schema):
     location = fields.String(required=True, validate=lambda e: e.strip() != "")
     skills = fields.List(fields.String(), required=True)
     source_type = fields.String(required=False)
-    hash= fields.String(required=False)
     
 class JobSearchDTO(Schema):
     title = fields.Str(required=False)

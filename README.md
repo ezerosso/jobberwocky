@@ -20,79 +20,81 @@ This project implements the Jobberwocky service, a platform for companies to pos
 - **Task Queue**: Celery
 - **Containerization**: Docker
 
-## Project Structure
+## Scheduled Task for Job Search
+The job search functionality is managed through a scheduled task that runs automatically. Although it is designed to execute only a few times per day in a production environment, for testing and demonstration purposes, the task has been configured to run every 5 minutes. This setup allows for quicker feedback and easier testing during development.
 
-jobberwocky/
-    ├── app/
-    │   ├── api/
-    │   │   ├── routes.py
-    │   ├── common/
-    |   |   ├── decorators/
-    |   │   │   ├── transaction.py
-    |   │   │   ├── validations.py
-    |   │   │   ├── error_handler.py
-    |   │   ├── dtos/
-    |   │   │   ├── job_dto.py
-    |   │   ├── interfaces/
-    |   │   │   ├── base_exception.py
-    |   │   │   ├── external_service_exception.py
-    |   │   │   ├── external_service_exception.py
-    |   │   │   ├── subscriber_exception.py
-    |   |   ├── mappers/
-    |   │   │   ├── job_mapper.py
-    |   |   ├── response/
-    |   │   │   ├── api_response.py
-    │   │   ├── logger.py
-    │   ├── core/
-    │   │   ├── celery_worker.py
-    │   │   ├── config.py
-    │   │   ├── container.py
-    │   ├── enums/
-    │   │   ├── job_source_type.py
-    │   ├── events/
-    |   │   ├── interfaces/
-    |   │   │   ├── event_publisher.py
-    |   │   │   ├── subscriber.py
-    │   │   ├── email_notification_service.py
-    │   │   ├── event_bus.py
-    │   │   ├── job_created_event.py
-    │   │   ├── job_notification_subscriber.py
-    │   ├── interfaces/
-    │   │   ├── external_job_service_interface.py
-    │   │   ├── generic_repository_interface.py
-    │   │   ├── job_repository_interface.py
-    │   │   ├── notification_service_interface.py
-    |   |   ├── notification_service_interface
-    │   ├── models/
-    │   │   ├── job_skill.py
-    │   │   ├── job.py
-    │   │   ├── skill.py
-    │   │   ├── subscriber.py
-    │   ├── repositories/
-    │   │   ├── in_memory_job_repository.py
-    │   │   ├── in_memory_subscriber_repository.py
-    │   │   ├── sqlite_job_repository.py
-    │   │   ├── sqlite_subscriber_repository.py
-    │   ├── services/
-    │   │   ├── external_job_service.py
-    │   │   ├── github_job_source_service.py
-    │   │   ├── job_service.py
-    │   │   ├── subscriber_service.py
-    │   ├── tasks/
-    │   │   ├── external_jobs_task.py
-    │   │   ├── notification_task.py
-    │   ├── utils/
-    │   │   ├── hash_util.py
-    │   │   ├── search_matcher.py
-    ├── tests/
-    |   ├── tet1.py
-    │   ├── test2.py
-    ├── docker-compose.yml
-    ├── Dockerfile
-    ├── Jobberwocky.postman_collection.json
-    ├── README.md
-    ├── requirements.txt
-    ├── run.py
+## Project Structure
+    jobberwocky/
+        ├── app/
+        │   ├── api/
+        │   │   ├── routes.py
+        │   ├── common/
+        |   |   ├── decorators/
+        |   │   │   ├── transaction.py
+        |   │   │   ├── validations.py
+        |   │   │   ├── error_handler.py
+        |   │   ├── dtos/
+        |   │   │   ├── job_dto.py
+        |   │   ├── interfaces/
+        |   │   │   ├── base_exception.py
+        |   │   │   ├── external_service_exception.py
+        |   │   │   ├── external_service_exception.py
+        |   │   │   ├── subscriber_exception.py
+        |   |   ├── mappers/
+        |   │   │   ├── job_mapper.py
+        |   |   ├── response/
+        |   │   │   ├── api_response.py
+        |   │   ├── utils/
+        |   │   │   ├── hash_util.py
+        |   │   │   ├── search_matcher.py
+        │   │   ├── logger.py
+        │   ├── core/
+        │   │   ├── celery_worker.py
+        │   │   ├── config.py
+        │   │   ├── container.py
+        │   ├── enums/
+        │   │   ├── job_source_type.py
+        │   ├── events/
+        |   │   ├── interfaces/
+        |   │   │   ├── event_publisher.py
+        |   │   │   ├── subscriber.py
+        │   │   ├── email_notification_service.py
+        │   │   ├── event_bus.py
+        │   │   ├── job_created_event.py
+        │   │   ├── job_notification_subscriber.py
+        │   ├── interfaces/
+        │   │   ├── external_job_service_interface.py
+        │   │   ├── generic_repository_interface.py
+        │   │   ├── job_repository_interface.py
+        │   │   ├── notification_service_interface.py
+        |   |   ├── notification_service_interface
+        │   ├── models/
+        │   │   ├── job_skill.py
+        │   │   ├── job.py
+        │   │   ├── skill.py
+        │   │   ├── subscriber.py
+        │   ├── repositories/
+        │   │   ├── in_memory_job_repository.py
+        │   │   ├── in_memory_subscriber_repository.py
+        │   │   ├── sqlite_job_repository.py
+        │   │   ├── sqlite_subscriber_repository.py
+        │   ├── services/
+        │   │   ├── external_job_service.py
+        │   │   ├── github_job_source_service.py
+        │   │   ├── job_service.py
+        │   │   ├── subscriber_service.py
+        │   ├── tasks/
+        │   │   ├── external_jobs_task.py
+        │   │   ├── notification_task.py
+        ├── tests/
+        |   ├── tet1.py
+        │   ├── test2.py
+        ├── docker-compose.yml
+        ├── Dockerfile
+        ├── Jobberwocky.postman_collection.json
+        ├── README.md
+        ├── requirements.txt
+        ├── run.py
 
 ## Running the Application
 

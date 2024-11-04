@@ -14,12 +14,12 @@ class CeleryConfig:
             broker_url=os.getenv('CELERY_BROKER_URL'),
             result_backend=os.getenv('CELERY_RESULT_BACKEND'),
             beat_schedule={
-                'log-every-30-seconds': {
+                'log-every-3-minutes': {
                     'task': 'app.tasks.external_jobs_task.log_task',
-                    'schedule': 30.0,
+                    'schedule': 18.0,
                 }
             }
-        )
+    )
 
 @dataclass
 class AppConfig:
