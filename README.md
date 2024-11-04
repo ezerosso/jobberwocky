@@ -99,7 +99,7 @@ jobberwocky/
 ### Clone the Repository:
 
 ### bash
-    git clone https://github.com/your-username/jobberwocky.git
+    git clone https://github.com/ezerosso/jobberwocky.git
 
 ### Build and Run the Docker Containers:
     docker-compose up -d
