@@ -46,7 +46,7 @@ class TestJobService(unittest.TestCase):
             location="Remote",
             skills=["Python", "Django"]
         )
-        with patch('app.utils.hash_util.JobHashService.generate_job_hash', side_effect=Exception("Error")):
+        with patch('app.common.utils.hash_util.JobHashService.generate_job_hash', side_effect=Exception("Error")):
             with self.assertRaises(InvalidDataException):
                 self.job_service.create_external_jobs(job_dto)
 

@@ -9,7 +9,7 @@ from app.events.job_created_event import JobCreatedEvent
 from app.interfaces.job_repository_interface import JobRepositoryInterface
 from app.common.mappers.job_mapper import JobMapper
 from app.models.job_skill import JobSkill
-from app.utils.hash_util import JobHashService
+from app.common.utils.hash_util import JobHashService
 
 from app.common.decorators.transaction import transactional
 from app.common.exceptions.job_exceptions import DuplicateJobException, InvalidSearchException

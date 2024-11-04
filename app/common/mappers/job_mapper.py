@@ -2,7 +2,6 @@ from typing import List
 
 from app.common.dtos.job_dto import CreateJobDTO, JobResponseDTO, SubscriberDTO
 from app.models.job import Job
-import xml.etree.ElementTree as ET
 
 from app.models.subscriber import Subscriber
 
@@ -36,22 +35,3 @@ class JobMapper:
     @staticmethod
     def from_SubscriberDTO_to_subscriber(subscriberDTO: SubscriberDTO) -> Job:
         return Subscriber(email=subscriberDTO['email'], search_pattern=subscriberDTO['pattern'])
-        
-    @staticmethod
-    def from_import_data_to_create_dto(job_data: list, country: str) -> dict:
-        title, salary, skills_xml = job_data
-        
-        # Parse XML skills
-        try:
-            root = ET.fromstring(skills_xml)
-            skills = [skill.text for skill in root.findall('skill') if skill.text]
-        except ET.ParseError:
-            skills = []
-        
-        return {
-            'title': title,
-            'salary': salary,
-            'location': country,
-            'skills': skills,
-            'source': 'EXTERNAL'
-        }

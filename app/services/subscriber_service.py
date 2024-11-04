@@ -1,4 +1,5 @@
 from app.common import logger
+from app.common.decorators.validations import validate_request
 from app.common.dtos.job_dto import SubscriberDTO
 from app.common.exceptions.base_exception import InvalidDataException
 from app.common.mappers.job_mapper import JobMapper

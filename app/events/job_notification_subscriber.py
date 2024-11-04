@@ -3,7 +3,7 @@ from typing import List
 from app.common.logger import logger
 from app.events.interfaces.event_subscriber import EventSubscriber
 from app.interfaces.notification_service_interface import NotificationServiceInterface
-from app.utils.search_matcher import SearchMatcher
+from app.common.utils.search_matcher import SearchMatcher
 
 class JobNotificationSubscriber(EventSubscriber):
     def __init__(self, subscriber_repository, notification_services: List[NotificationServiceInterface], app):
