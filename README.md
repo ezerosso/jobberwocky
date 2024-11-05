@@ -42,6 +42,7 @@ The job search functionality is managed through a scheduled task that runs autom
         |   │   │   ├── subscriber_exception.py
         |   |   ├── mappers/
         |   │   │   ├── job_mapper.py
+        |   │   │   ├── subscriber_mapper.py
         |   |   ├── response/
         |   │   │   ├── api_response.py
         |   │   ├── utils/
@@ -52,6 +53,10 @@ The job search functionality is managed through a scheduled task that runs autom
         │   │   ├── celery_worker.py
         │   │   ├── config.py
         │   │   ├── container.py
+        │   ├── domain/
+        │   │   ├── job_domain.py
+        │   │   ├── skill_domain.py
+        │   │   ├── subscriber_domain.py
         │   ├── enums/
         │   │   ├── job_source_type.py
         │   ├── events/
@@ -87,8 +92,8 @@ The job search functionality is managed through a scheduled task that runs autom
         │   │   ├── external_jobs_task.py
         │   │   ├── notification_task.py
         ├── tests/
-        |   ├── tet1.py
-        │   ├── test2.py
+        |   ├── test_in_memory_job_repository.py
+        │   ├── test_job_service.py
         ├── docker-compose.yml
         ├── Dockerfile
         ├── Jobberwocky.postman_collection.json
